@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skrip Video Interaktif Futuristik</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-robot neon-text"></i> PROMPT.AI V3.4</h1>
+        <p class="tagline neon-text">Perancang Skrip Video Interaktif Anda. Isikan kosong atau jana idea!</p>
+
+        <div class="prompt-output-section">
+            <h2><i class="fas fa-language"></i> Prompt (Bahasa Melayu):</h2>
+            <div class="prompt-box">
+                <p id="promptDisplayMs">Isi medan di bawah atau biarkan kosong untuk idea rawak.</p>
+                <div id="copyFeedbackMs" class="copy-feedback">Disalin!</div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="generateButtonMs" class="neon-button"><i class="fas fa-sync-alt"></i> Jana Skrip / Isi Kekosongan</button>
+                <button id="copyButtonMs" class="neon-button secondary-neon-button"><i class="far fa-copy"></i> Salin</button>
+                <button id="saveButtonMs" class="neon-button secondary-neon-button"><i class="far fa-bookmark"></i> Simpan</button>
+                <button id="exportButtonMs" class="neon-button tertiary-neon-button"><i class="fas fa-download"></i> Eksport</button>
+            </div>
+        </div>
+
+        <div class="prompt-output-section mt-40">
+            <h2><i class="fas fa-globe"></i> Prompt (English):</h2>
+            <div class="prompt-box">
+                <p id="promptDisplayEn">Fill fields below or leave blank for random ideas.</p>
+                <div id="copyFeedbackEn" class="copy-feedback">Copied!</div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="copyButtonEn" class="neon-button secondary-neon-button"><i class="far fa-copy"></i> Copy</button>
+                <button id="saveButtonEn" class="neon-button secondary-neon-button"><i class="far fa-bookmark"></i> Save</button>
+                <button id="exportButtonEn" class="neon-button tertiary-neon-button"><i class="fas fa-download"></i> Export</button>
+            </div>
+        </div>
+
+        <div class="options-section">
+            <div class="input-sections-container">
+                <div class="input-group">
+                    <h3><i class="fas fa-film"></i> Asas Video:</h3>
+                    <label for="genreInput">Genre:</label>
+                    <input type="text" id="genreInput" placeholder="Contoh: Komedi Romantik" data-category="genre">
+
+                    <label for="videoStyleInput">Gaya Video:</label>
+                    <input type="text" id="videoStyleInput" placeholder="Contoh: Sinematik Retro" data-category="videoStyle">
+
+                    <label for="aspectRatioInput">Nisbah Aspek:</label>
+                    <input type="text" id="aspectRatioInput" placeholder="Contoh: 16:9 atau 21:9" data-category="aspectRatio">
+
+                    <label for="videoMoodInput">Suasana Video:</label>
+                    <input type="text" id="videoMoodInput" placeholder="Contoh: Misterius & Tegang" data-category="videoMood">
+                </div>
+
+                <div class="input-group">
+                    <h3><i class="fas fa-user-friends"></i> Watak & Aksi:</h3>
+                    <label for="subjectInput">Subjek (Siapa/Apa):</label>
+                    <input type="text" id="subjectInput" placeholder="Contoh: Lelaki Melayu Berpakaian Segak" data-category="subject">
+
+                    <label for="subjectActionInput">Aksi Subjek:</label>
+                    <input type="text" id="subjectActionInput" placeholder="Contoh: Mempersembahkan Seni Silat" data-category="subjectAction">
+
+                    <label for="subjectExpressionInput">Ekspresi Subjek:</label>
+                    <input type="text" id="subjectExpressionInput" placeholder="Contoh: Tenang & Tersenyum" data-category="subjectExpression">
+
+                    <label for="subjectDialogueInput">Kata-kata Subjek:</label>
+                    <input type="text" id="subjectDialogueInput" placeholder="Contoh: 'TAK AKAN MELAYU HILANG DI DUNIA'" data-category="subjectDialogue">
+                </div>
+
+                <div class="input-group">
+                    <h3><i class="fas fa-map-marker-alt"></i> Latar & Waktu:</h3>
+                    <label for="locationInput">Lokasi (Latar Belakang):</label>
+                    <input type="text" id="locationInput" placeholder="Contoh: Gelanggang Silat Moden" data-category="location">
+
+                    <label for="timeInput">Waktu:</label>
+                    <input type="text" id="timeInput" placeholder="Contoh: Malam" data-category="time">
+                </div>
+
+                <div class="input-group">
+                    <h3><i class="fas fa-video"></i> Kamera & Bunyi:</h3>
+                    <label for="cameraAngleInput">Sudut Kamera:</label>
+                    <input type="text" id="cameraAngleInput" placeholder="Contoh: Jarak Jauh" data-category="cameraAngle">
+
+                    <label for="cameraMovementInput">Gerakan Kamera:</label>
+                    <input type="text" id="cameraMovementInput" placeholder="Contoh: Sudut Orbit" data-category="cameraMovement">
+
+                    <label for="lightingInput">Pencahayaan:</label>
+                    <input type="text" id="lightingInput" placeholder="Contoh: Cahaya Yang Praktikal" data-category="lighting">
+
+                    <label for="backgroundSoundInput">Bunyi Latar Belakang:</label>
+                    <input type="text" id="backgroundSoundInput" placeholder="Contoh: Muzik Epik" data-category="backgroundSound">
+                </div>
+            </div>
+
+            <button id="clearInputsButton" class="neon-button tertiary-neon-button"><i class="fas fa-eraser"></i> Kosongkan Semua Input</button>
+
+        </div>
+
+        <div class="saved-prompts-section">
+            <h2><i class="fas fa-save"></i> Skrip Disimpan:</h2>
+            <ul id="savedPromptsList">
+                <li class="no-prompts-message">Tiada skrip yang disimpan lagi.</li>
+            </ul>
+            <button id="clearSavedButton" class="neon-button delete-neon-button"><i class="fas fa-trash-alt"></i> Kosongkan Semua</button>
+        </div>
+
+        <p class="footer-note">Dikuasakan oleh AI. Dibina dengan <i class="fas fa-heart"></i> untuk pencipta.</p>
+        <button id="helpButton" class="help-button neon-button"><i class="fas fa-question-circle"></i> Bantuan</button>
+    </div>
+
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2><i class="fas fa-info-circle"></i> Cara Menggunakan Prompt.AI</h2>
+            <p>Aplikasi ini membantu anda merancang skrip video dengan memberikan anda kawalan penuh ke atas setiap elemen, menjana prompt dalam format yang sesuai untuk alat penjanaan video AI.</p>
+            <p><strong>1. Isi Medan Input:</strong> Taipkan idea anda sendiri untuk setiap kategori (Genre, Subjek, Lokasi, dll.).</p>
+            <p><strong>2. Jana Skrip / Isi Kekosongan:</strong> Tekan butang "Jana Skrip / Isi Kekosongan".</p>
+            <ul>
+                <li>Jika anda mengisi sesuatu medan, aplikasi akan gunakan input anda.</li>
+                <li>Jika anda membiarkan medan kosong, aplikasi akan **menjana idea rawak** untuk mengisi kekosongan tersebut.</li>
+            </ul>
+            <p><strong>3. Salin, Simpan, Eksport (Untuk Setiap Bahasa):</strong></p>
+            <ul>
+                <li><strong>Salin:</strong> Salin skrip yang dijana ke clipboard anda.</li>
+                <li><strong>Simpan:</strong> Simpan skrip ke senarai 'Skrip Disimpan' untuk rujukan masa depan.</li>
+                <li><strong>Eksport:</strong> Muat turun skrip semasa sebagai fail teks.</li>
+            </ul>
+            <p><strong>4. Kosongkan Input:</strong> Gunakan butang "Kosongkan Semua Input" untuk mengosongkan semua medan teks dengan cepat.</p>
+            <p class="mt-20">Semoga berjaya menghasilkan video yang luar biasa!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
